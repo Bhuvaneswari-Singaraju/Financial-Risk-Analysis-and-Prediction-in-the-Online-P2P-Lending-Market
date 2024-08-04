@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            overflow: auto; /* Enable scrolling */
+        }
+        h1 {
+            text-align: center;
+        }
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .form-group label, .form-group input {
+            width: 48%;
+        }
+        .form-group input {
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop>
+        <source src="{{ url_for('static', filename='Bank.mp4') }}" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <div class="container">
+        <h1>Loan Prediction Form</h1>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="BorrowerAPR">Borrower APR:</label>
+                <input type="number" id="BorrowerAPR" name="BorrowerAPR" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="MonthlyLoanPayment">Monthly Loan Payment:</label>
+                <input type="number" id="MonthlyLoanPayment" name="MonthlyLoanPayment" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="LoanOriginalAmount">Loan Original Amount:</label>
+                <input type="number" id="LoanOriginalAmount" name="LoanOriginalAmount" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="BorrowerRate">Borrower Rate:</label>
+                <input type="number" id="BorrowerRate" name="BorrowerRate" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="LoanNumber">Loan Number:</label>
+                <input type="number" id="LoanNumber" name="LoanNumber" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="LP_ServiceFees">LP Service Fees:</label>
+                <input type="number" id="LP_ServiceFees" name="LP_ServiceFees" step="any" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="EstimatedEffectiveYield">Estimated Effective Yield:</label>
+                <input type="number" id="EstimatedEffectiveYield" name="EstimatedEffectiveYield" step="any" required>
+            </div>
+            
+            
+            <div class="form-group">
+                <label for="EstimatedReturn">Estimated Return:</label>
+                <input type="number" id="EstimatedReturn" name="EstimatedReturn" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="LoanCurrentDaysDelinquent">Loan Current Days Delinquent:</label>
+                <input type="number" id="LoanCurrentDaysDelinquent" name="LoanCurrentDaysDelinquent" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="StatedMonthlyIncome">Stated Monthly Income:</label>
+                <input type="number" id="StatedMonthlyIncome" name="StatedMonthlyIncome" step="any" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
